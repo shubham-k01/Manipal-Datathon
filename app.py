@@ -7,6 +7,7 @@ import numpy as np
 
 from keras.models import load_model
 from keras.preprocessing import image
+from keras.utils import load_img,img_to_array
 
 app = Flask(__name__)
 
@@ -18,10 +19,10 @@ model.make_predict_function()
 # model = pickle.load(open(os.path.join(basepath,'model.pkl'),"rb"))
 
 def model_predict(img_path, model):
-    img = image.load_img(img_path, target_size=(100,100))
+    img = load_img(img_path, target_size=(100,100))
 
     # Preprocessing the image
-    x = image.img_to_array(img)
+    x = img_to_array(img)
     x = np.expand_dims(x, axis=0)
     preds = model.predict(x)
     return preds
@@ -38,6 +39,7 @@ def predict():
         img = request.files["file"]
         # Save the file to ./uploads
         file_path = os.path.join(basepath, "uploads", secure_filename(img.filename))
+        print(file_path)
         img.save(file_path)
 
         # Make prediction
