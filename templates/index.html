@@ -1,12 +1,14 @@
 {% extends "base.html" %} {% block content %}
 
 <h2>Welcome To StoneSpotter</h2>
-<h3>A reliable kidney stone detector</h3>
+<h3 style="margin-top: 25px;">A reliable kidney stone detector</h3>
 
-<div>
+<p>Drop a kidney image and test the presence of kidney stone or other ailments </p>
+
+<div style="margin-top: 30px;">
     <form id="upload-file" method="post" enctype="multipart/form-data">
         <label for="imageUpload" class="upload-label">
-            Choose...
+            Choose an image...
         </label>
         <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
     </form>

@@ -18,15 +18,6 @@ model = load_model((os.path.join(basepath,'kidney_stone.h5')))
 model.make_predict_function()  
 # model = pickle.load(open(os.path.join(basepath,'model.pkl'),"rb"))
 
-# def model_predict(img_path, model):
-#     img = load_img(img_path, target_size=(100,100))
-
-#     # Preprocessing the image
-#     x = img_to_array(img)
-#     x = np.expand_dims(x, axis=0)
-#     preds = model.predict(x)
-#     return preds
-
 def model_predict(img_path, model): 
   img = load_img(img_path, target_size=(100,100))  
     #   plt.imshow(img)
